@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th=https://www.thymeleaf.org>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div align="center">
+    <img src="facebook-icon-text.png"><br>
+    <h1>Users' List</h1>
+
+</div>
+
+<form th:action="@{/saveUser}" th:object="${user}" method="POST">
+    <br><input type="text" placeholder="User Name" th:field="*{userName}">
+    <input type="text" placeholder="Password" th:field="*{password}">
+    <input type="text" placeholder="Repeat Password" th:name="passwordTwo"><br>
+
+    <tr th:each="user:${ListUsers}"></tr>
+    <input type="text" placeholder="Email" th:field="*{email}">
+    <input type="text" placeholder="First Name" th:field="*{firstname}">
+    <input type="text" placeholder="Last Name" th:field="*{lastname}">
+    <br><input type="submit" value="Signup User"><br><br>
+</form>
+
+<!-------------Skappa logga in------------->
+<form th:action="@{/logginUser}" method="POST">
+    <input type="text" placeholder="User Name" th:name="userName" >
+    <input type="text" placeholder="Password" th:name="password" >
+    <input type="submit" value="Log in"><br>
+</form>
+
+<table border="1">
+    <thead>
+    <th>FirstName</th>
+    <th>Efternamn</th>
+    <th>Email</th>
+   <!-- <th>Foto</th>-->
+    </thead>
+    <h2>Saved users</h2>
+    <tbody>
+    <tr th:each="user:${users}">
+        <td th:text="${user.firstname}"></td>
+        <td th:text="${user.lastname}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td th:text="${user.getPhoto(String)}"></td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+<!--------------------------->
+
+<table>
+    <thead>
+    <tr>
+        <th> User ID      </th>
+        <th> userName     </th>
+        <th>   firstname  </th>
+        <th>   email      </th>
+        <th>   image      </th>
+        <th>   Actions    </th>
+    </tr>
+    </thead>
+
+    <!------------>
+    </th>
+
+    <tbody>
+
+    <tr th:each="user:${users}">
+        <td th:text="${user.id}"> ID               </td>
+        <td th:text="${user.userName}"> userName   </td>
+        <td th:text="${user.firstname}"> firstname </td>
+        <td th:text="${user.getEmail()}"> email    </td>
+        <td th:text="${user.getPhoto(String)}"> image    </td>
+        <td>
+            <form action="#" th:action="@{'/delete/' + ${user.id}}" th:method="get">
+                <button type="submit" id="submitButton">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{ '/edit/{id}' (id=${user.id})}" th:method="get">
+                <button type="submit" >Edit</button>
+            </form>
+        </td>
+
+    </tr>
+
+
+
+    </tbody>
+
+
+
+
+</table>
+
+<p th:text="${msg}"></p>
+
+</body>
+</html>

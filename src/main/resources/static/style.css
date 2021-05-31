@@ -1,0 +1,16 @@
+body{
+
+    background-color: #c9ece8;
+}
+h1{
+    color: #273e5e;
+    font-family: "Tw Cen MT";
+    font-size: 40px;
+    text-align: left;
+}
+img {
+    border: transparent;
+    border-radius: 4px;
+    padding: 3px;
+    width: 200px;
+}

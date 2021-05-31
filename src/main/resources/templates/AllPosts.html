@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th=https://www.thymeleaf.org>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table>
+    <thead>
+    <th>Title</th>
+    <th>Description</th>
+    </thead>
+    <tbody>
+    <tr th:each="post:${posts}">
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.description}"></td>
+        <td th:text="${post.firstname}"></td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+</body>
+</html>

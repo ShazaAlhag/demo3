@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th=https://www.thymeleaf.org>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<html xmlns:th=https://www.thymeleaf.org>
+
+
+<form th:action="@{/savePost}" th:object="${post}" method="GET">
+    <input type="text" placeholder="Titel" th:field="*{title}"><br>
+    <input type="text" placeholder="Description" th:field="*{description}"><br>
+    <input type="text" placeholder="UserName" th:field="*{firstname}"><br>
+    <input type="submit" value="Save post">
+</form>
+
+<div th:each="post: ${posts}">
+    <p th:text="${post.title}" />
+    <p th:text="${post.description}" />
+    <p th:text="${post.firstname}" />
+</div>
+
+</body>
+</html>
