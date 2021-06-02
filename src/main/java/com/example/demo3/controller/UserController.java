@@ -74,7 +74,7 @@ public class UserController {
         return mv;
 
     }
-
+/*
     @PostMapping("/save-user")
     public String saveAndUpdateUser(@ModelAttribute("user") User user) {
         System.out.print(user);
@@ -82,19 +82,21 @@ public class UserController {
         return "redirect:/admin";
     }
 
-    @GetMapping(value = "/edit/{id}")
-    public ModelAndView editUserInfo(@PathVariable(name = "id") long id) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("edit");
-        User userObject = userService.getUserById(id);
-        mav.addObject("user", userObject);
-        return mav;
-    }
+ */
+@GetMapping(value = "/edit/{id}")
+public String edit(@PathVariable(value = "id") long id,Model model){
+        User user=userService.getUserById(id);
+        model.addAttribute("user",user);
+        return "edit_user";
 
+}
+/*
     @GetMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable(name = "id") long id) {
         userService.removeUser(id);
         return "user";
     }
+
+ */
 }
 
