@@ -102,7 +102,8 @@ Frontend-Backend and MySQL database.
 
 * Delete user.
 
-* Add photo (profile photo).
+* Add photo (profile photo):
+*[Photo](facebook-icon-text.png)
 
 * change photo (profile photo).
 
