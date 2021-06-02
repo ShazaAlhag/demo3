@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div align="center">
+<div align="center" >
     <img src="facebook-icon-text.png"><br>
     <h1>Users' List</h1>
 
@@ -26,14 +26,16 @@
     <input type="text" placeholder="Email" th:field="*{email}">
     <input type="text" placeholder="First Name" th:field="*{firstname}">
     <input type="text" placeholder="Last Name" th:field="*{lastname}">
-    <br><input type="submit" value="Signup User"><br><br>
+    <br><input class="btn btn-primary" type="submit" value="Signup User"><br><br>
+  <!--  <br><input type="submit" value="Signup User"><br><br>-->
 </form>
 
 <!-------------Skappa logga in------------->
 <form th:action="@{/logginUser}" method="POST">
     <input type="text" placeholder="User Name" th:name="userName" >
     <input type="text" placeholder="Password" th:name="password" >
-    <input type="submit" value="Log in"><br>
+    <input class="btn btn-primary" type="submit" value="Log in"><br>
+    <!--<input type="submit" value="Log in"><br>--->
 </form>
 
 <table border="1">
