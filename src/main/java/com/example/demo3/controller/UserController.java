@@ -84,19 +84,20 @@ public class UserController {
 
  */
 @GetMapping(value = "/edit/{id}")
-public String edit(@PathVariable(value = "id") long id,Model model){
+public String edit(@PathVariable(value = "id") long id, Model model){
         User user=userService.getUserById(id);
         model.addAttribute("user",user);
         return "edit_user";
 
 }
-/*
-    @GetMapping(value = "/delete/{id}")
-    public String deleteUser(@PathVariable(name = "id") long id) {
-        userService.removeUser(id);
-        return "user";
+
+    @GetMapping(value = "/deleteUser/{id}")
+    public String deleteUser(@PathVariable long id) {
+        //delete
+        userService.deleteUser(id);
+        return "redirect:/";
     }
 
- */
+
 }
 

@@ -22,7 +22,7 @@
     <input type="text" placeholder="Password" th:field="*{password}">
     <input type="text" placeholder="Repeat Password" th:name="passwordTwo"><br>
 
-    <tr th:each="user:${ListUsers}"></tr>
+    <tr th:each="user:${users}"></tr>
     <input type="text" placeholder="Email" th:field="*{email}">
     <input type="text" placeholder="First Name" th:field="*{firstname}">
     <input type="text" placeholder="Last Name" th:field="*{lastname}">
@@ -84,16 +84,19 @@
         <td th:text="${user.getEmail()}"> email    </td>
         <td th:text="${user.getPhoto(String)}"> image    </td>
         <td>
-            <form action="#" th:action="@{'/delete/' + ${user.id}}" th:method="get">
-                <!-- <input class="btn btn-primary" type="submit" value="Edit">-->
-                <input class="btn btn-primary" type="submit" value="Delete">
-                <!--<button type="submit" id="submitButton">Delete</button>--->
+            <form action="#" th:action="@{'/edit/' +${user.id}}" th:method="get">
+
+            <!-- <input class="btn btn-primary" type="submit" value="Edit">-->
+                <button class="btn btn-danger" type="submit" id="submitButton">Edit & Delete</button>
+                <!--                 <input class="btn btn-danger" type="submit" id="submitButton" value="Delete"> -->
+
+               <!-- <button type="submit" id="submitButton">Delete</button>-->
             </form>
         </td>
         <td>
-            <form action="#" th:action="@{ '/edit/{id}' (id=${user.id})}" th:method="get">
+           <!-- <form action="#" th:action="@{ '/edit/{id}' (id=${user.id})}" th:method="get">-->
               <!-- <button type="submit" >Edit</button>--->
-                <input class="btn btn-primary" type="submit" value="Edit">
+             <!--   <input class="btn btn-primary" type="submit" value="Edit">-->
             </form>
         </td>
 

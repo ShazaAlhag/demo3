@@ -16,7 +16,9 @@
 <input type="text" placeholder="First Name" th:field="*{firstname}">
 <input type="text" placeholder="Last Name" th:field="*{lastname}">
 <br><input class="btn btn-primary" type="submit" value="Edit User"><br><br>
-<!--  <br><input type="submit" value="Signup User"><br><br>-->
+    <a id="Delete" th:href="@{'/delete/' + ${user.id}}">Delete User</a><br><br>
+
+    <!--  <br><input type="submit" value="Signup User"><br><br>-->
 </form>
 <a th:href="@{/}"> Return Back To Homepage</a>
 </body>
